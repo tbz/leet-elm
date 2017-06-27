@@ -1,3 +1,3 @@
 docs :
-	elm-make Leet.elm --output docs/index.html
+	elm-make Leet.elm --output docs/elm.js
 
