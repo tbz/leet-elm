@@ -19,19 +19,11 @@ minutesLeft date =
   let
     hour = Date.hour date
     minute = Date.minute date
-    hoursDiff = 13 - hour
-    hoursLeft = 
-      if hoursDiff > 0
-      then hoursDiff
-      else 24 + hoursDiff
-    minutesDiff = 37 - minute
-    minutesLeft =
-      if minutesDiff > 0
-      then minutesDiff
-      else 37 + minutesDiff
-    totalMinutesLeft = minutesLeft + hoursLeft * 60
-  in 
-    totalMinutesLeft
+    diff = (13 - hour) * 60 + (37 - minute)
+  in
+    if diff < 0
+    then diff + 1440
+    else diff
 
 main =
   Html.program

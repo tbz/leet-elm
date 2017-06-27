@@ -8631,13 +8631,9 @@ var _user$project$Main$update = F2(
 var _user$project$Main$init = {ctor: '_Tuple2', _0: 0, _1: _elm_lang$core$Platform_Cmd$none};
 var _user$project$Main$minutesLeft = function (date) {
 	var minute = _elm_lang$core$Date$minute(date);
-	var minutesDiff = 37 - minute;
-	var minutesLeft = (_elm_lang$core$Native_Utils.cmp(minutesDiff, 0) > 0) ? minutesDiff : (37 + minutesDiff);
 	var hour = _elm_lang$core$Date$hour(date);
-	var hoursDiff = 13 - hour;
-	var hoursLeft = (_elm_lang$core$Native_Utils.cmp(hoursDiff, 0) > 0) ? hoursDiff : (24 + hoursDiff);
-	var totalMinutesLeft = minutesLeft + (hoursLeft * 60);
-	return totalMinutesLeft;
+	var diff = ((13 - hour) * 60) + (37 - minute);
+	return (_elm_lang$core$Native_Utils.cmp(diff, 0) < 0) ? (diff + 1440) : diff;
 };
 var _user$project$Main$isDateLeet = function (date) {
 	var minute = _elm_lang$core$Date$minute(date);
